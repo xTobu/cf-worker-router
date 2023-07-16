@@ -2,6 +2,23 @@ name = "cf-worker-router"
 main = "src/worker.ts"
 compatibility_date = "2023-06-28"
 
+workers_dev = false
+route = { pattern = "yobii.org/api/*", zone_name = "yobii.org" }
+
+# kv_namespaces = [
+#   { binding = "<MY_NAMESPACE>", id = "<KV_ID>" }
+# ]
+
+[env.staging]
+name = "cf-worker-router-staging"
+main = "src/worker.ts"
+workers_dev = false
+route = { pattern = "staging.yobii.org/api/*", zone_name = "yobii.org" }
+
+# kv_namespaces = [
+#   { binding = "<MY_NAMESPACE>", id = "<STAGING_KV_ID>" }
+# ]
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables
